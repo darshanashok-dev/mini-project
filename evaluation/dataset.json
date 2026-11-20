@@ -1,0 +1,222 @@
+{
+  "description": "Representative evaluation dataset of benign and suspicious messages and URLs based on CERT-In and I4C cybercrime advisories.",
+  "version": "1.0.0",
+  "samples": [
+    {
+      "id": "MSG_SUSP_01",
+      "type": "message",
+      "content": "This is Inspector Sharma from Mumbai Cyber Crime Police and CBI. A parcel addressed in your name containing 200g MDMA narcotics has been seized by Customs. A non-bailable arrest warrant has been issued against you for money laundering. You are placed under digital arrest. Stay on this Skype video call immediately in a closed room and do not tell anyone. You must transfer Rs 1,50,000 security deposit to the RBI safe verification account to clear your name or police will arrest you within 2 hours.",
+      "text": "This is Inspector Sharma from Mumbai Cyber Crime Police and CBI. A parcel addressed in your name containing 200g MDMA narcotics has been seized by Customs. A non-bailable arrest warrant has been issued against you for money laundering. You are placed under digital arrest. Stay on this Skype video call immediately in a closed room and do not tell anyone. You must transfer Rs 1,50,000 security deposit to the RBI safe verification account to clear your name or police will arrest you within 2 hours.",
+      "actualClassification": "SUSPICIOUS",
+      "label": "SUSPICIOUS",
+      "explanation": "Digital arrest scam combining law enforcement impersonation, narcotics parcel threats, isolation coercion, and safe account payment demands."
+    },
+    {
+      "id": "MSG_SUSP_02",
+      "type": "message",
+      "content": "Dear customer, your mobile number has been found associated with illegal spam activities. TRAI and Department of Telecommunications (DoT) order immediate disconnection within 24 hours. A police case has been registered. Call the enforcement officer immediately on video call to verify your identity.",
+      "text": "Dear customer, your mobile number has been found associated with illegal spam activities. TRAI and Department of Telecommunications (DoT) order immediate disconnection within 24 hours. A police case has been registered. Call the enforcement officer immediately on video call to verify your identity.",
+      "actualClassification": "SUSPICIOUS",
+      "label": "SUSPICIOUS",
+      "explanation": "TRAI regulatory impersonation with immediate service disconnection threats and video call enforcement demands."
+    },
+    {
+      "id": "MSG_SUSP_03",
+      "type": "message",
+      "content": "SBI Alert: Your net banking account will be suspended today due to pending KYC verification. Click here immediately to update and enter your OTP and login password to prevent permanent account blocked.",
+      "text": "SBI Alert: Your net banking account will be suspended today due to pending KYC verification. Click here immediately to update and enter your OTP and login password to prevent permanent account blocked.",
+      "actualClassification": "SUSPICIOUS",
+      "label": "SUSPICIOUS",
+      "explanation": "Banking phishing scam using artificial deadline, account block threat, and credential harvesting."
+    },
+    {
+      "id": "MSG_SUSP_04",
+      "type": "message",
+      "content": "FedEx Courier notice: Your shipment to China contains illegal passports and credit cards. Crime branch has lodged an FIR against you. Keep this confidential and do not inform your lawyer. Pay the clearance fine of Rs 50,000 via UPI transfer to avoid police investigation.",
+      "text": "FedEx Courier notice: Your shipment to China contains illegal passports and credit cards. Crime branch has lodged an FIR against you. Keep this confidential and do not inform your lawyer. Pay the clearance fine of Rs 50,000 via UPI transfer to avoid police investigation.",
+      "actualClassification": "SUSPICIOUS",
+      "label": "SUSPICIOUS",
+      "explanation": "Courier parcel scam with extortion fine demand and secrecy instruction."
+    },
+    {
+      "id": "MSG_SUSP_05",
+      "type": "message",
+      "content": "Dear consumer, your electricity connection will be disconnected tonight at 9:30 PM because your previous month bill was not updated. Please immediately contact our power officer and transfer bill payment.",
+      "text": "Dear consumer, your electricity connection will be disconnected tonight at 9:30 PM because your previous month bill was not updated. Please immediately contact our power officer and transfer bill payment.",
+      "actualClassification": "SUSPICIOUS",
+      "label": "SUSPICIOUS",
+      "explanation": "Utility disconnection scam using artificial panic deadline and money transfer request."
+    },
+    {
+      "id": "MSG_SUSP_06",
+      "type": "message",
+      "content": "Income Tax Department Alert: An approved refund of Rs 24,500 has been credited. Submit your net banking credentials and enter your card details and OTP immediately to release payment.",
+      "text": "Income Tax Department Alert: An approved refund of Rs 24,500 has been credited. Submit your net banking credentials and enter your card details and OTP immediately to release payment.",
+      "actualClassification": "SUSPICIOUS",
+      "label": "SUSPICIOUS",
+      "explanation": "Tax refund phishing attempt requiring confidential financial credentials and authentication OTP."
+    },
+    {
+      "id": "MSG_BENIGN_01",
+      "type": "message",
+      "content": "Security Tip from State Bank of India: Bank officials never ask for your OTP, PIN, password or CVV. Never share your OTP with anyone, even if the caller claims to be from the bank.",
+      "text": "Security Tip from State Bank of India: Bank officials never ask for your OTP, PIN, password or CVV. Never share your OTP with anyone, even if the caller claims to be from the bank.",
+      "actualClassification": "BENIGN",
+      "label": "BENIGN",
+      "explanation": "Legitimate banking security education alert advising users never to disclose credentials."
+    },
+    {
+      "id": "MSG_BENIGN_02",
+      "type": "message",
+      "content": "Dear Customer, INR 450.00 debited from A/C XX1234 on 19-Nov-26 14:30 via UPI Ref 432490219. Balance: INR 12,450.00. If this was not done by you, forward this SMS to 9223008333.",
+      "text": "Dear Customer, INR 450.00 debited from A/C XX1234 on 19-Nov-26 14:30 via UPI Ref 432490219. Balance: INR 12,450.00. If this was not done by you, forward this SMS to 9223008333.",
+      "actualClassification": "BENIGN",
+      "label": "BENIGN",
+      "explanation": "Standard banking transaction SMS receipt containing no urgency, threats, or link redirections."
+    },
+    {
+      "id": "MSG_BENIGN_03",
+      "type": "message",
+      "content": "Hi Rahul, let's meet tomorrow at 10 AM in Conference Room B to review the project slides. Please bring your laptop.",
+      "text": "Hi Rahul, let's meet tomorrow at 10 AM in Conference Room B to review the project slides. Please bring your laptop.",
+      "actualClassification": "BENIGN",
+      "label": "BENIGN",
+      "explanation": "Normal interpersonal and professional scheduling message."
+    },
+    {
+      "id": "MSG_BENIGN_04",
+      "type": "message",
+      "content": "Your package with order #408-2918239 has been dispatched with Blue Dart and is arriving tomorrow. You can track package status on the official website.",
+      "text": "Your package with order #408-2918239 has been dispatched with Blue Dart and is arriving tomorrow. You can track package status on the official website.",
+      "actualClassification": "BENIGN",
+      "label": "BENIGN",
+      "explanation": "Standard delivery tracking notification without threats or demands."
+    },
+    {
+      "id": "MSG_BENIGN_05",
+      "type": "message",
+      "content": "Your login verification code is 849201. This code is valid for 10 minutes. For security reasons, do not disclose your OTP to anyone.",
+      "text": "Your login verification code is 849201. This code is valid for 10 minutes. For security reasons, do not disclose your OTP to anyone.",
+      "actualClassification": "BENIGN",
+      "label": "BENIGN",
+      "explanation": "Automated two-factor authentication passcode delivery accompanied by a safe non-disclosure warning."
+    },
+    {
+      "id": "MSG_BENIGN_06",
+      "type": "message",
+      "content": "Informational Note: We attended a seminar regarding cybercrime prevention. Police and CBI always issue official summons in writing, never through video calls.",
+      "text": "Informational Note: We attended a seminar regarding cybercrime prevention. Police and CBI always issue official summons in writing, never through video calls.",
+      "actualClassification": "BENIGN",
+      "label": "BENIGN",
+      "explanation": "Educational cybersecurity discussion mentioning authorities without issuing personal threats or demands."
+    },
+    {
+      "id": "URL_SUSP_01",
+      "type": "url",
+      "content": "http://192.168.1.105:8080/secure-banking-portal/online-login-account-update-verification/update.php",
+      "text": "http://192.168.1.105:8080/secure-banking-portal/online-login-account-update-verification/update.php",
+      "actualClassification": "SUSPICIOUS",
+      "label": "SUSPICIOUS",
+      "explanation": "Numeric IP address host hosting a banking login page with an unusually long obfuscated path."
+    },
+    {
+      "id": "URL_SUSP_02",
+      "type": "url",
+      "content": "https://sbi.bank.account-verification-login-portal.xyz/secure-banking-portal-verification-update/login.php",
+      "text": "https://sbi.bank.account-verification-login-portal.xyz/secure-banking-portal-verification-update/login.php",
+      "actualClassification": "SUSPICIOUS",
+      "label": "SUSPICIOUS",
+      "explanation": "Brand subdomain masquerading where 'sbi' is combined with multiple host hyphens and a deep credential path."
+    },
+    {
+      "id": "URL_SUSP_03",
+      "type": "url",
+      "content": "https://paypa1-security-verification-portal.com/update-account-details-verification-required/login.html",
+      "text": "https://paypa1-security-verification-portal.com/update-account-details-verification-required/login.html",
+      "actualClassification": "SUSPICIOUS",
+      "label": "SUSPICIOUS",
+      "explanation": "Typosquatting domain using digit substitution ('paypa1' for 'paypal') combined with hyphenated keywords and long path."
+    },
+    {
+      "id": "URL_SUSP_04",
+      "type": "url",
+      "content": "http://google.com@phishing-target-account-verification-server.net/secure-login-account-update-verification-auth/login.php",
+      "text": "http://google.com@phishing-target-account-verification-server.net/secure-login-account-update-verification-auth/login.php",
+      "actualClassification": "SUSPICIOUS",
+      "label": "SUSPICIOUS",
+      "explanation": "Authority obfuscation using '@' symbol to mask the true destination server combined with a deep login path."
+    },
+    {
+      "id": "URL_SUSP_05",
+      "type": "url",
+      "content": "https://sbi.secure-online-login-account-update-portal.com/banking-verification-credential-update-portal/login.php",
+      "text": "https://sbi.secure-online-login-account-update-portal.com/banking-verification-credential-update-portal/login.php",
+      "actualClassification": "SUSPICIOUS",
+      "label": "SUSPICIOUS",
+      "explanation": "Brand subdomain masquerading with excessive hyphen keyword stuffing and long credential path."
+    },
+    {
+      "id": "URL_SUSP_06",
+      "type": "url",
+      "content": "http://192.168.1.100:8080/downloads/customer_support_patch.apk",
+      "text": "http://192.168.1.100:8080/downloads/customer_support_patch.apk",
+      "actualClassification": "SUSPICIOUS",
+      "label": "SUSPICIOUS",
+      "explanation": "Raw IP address serving a direct Android application package (.apk) dropper."
+    },
+    {
+      "id": "URL_BENIGN_01",
+      "type": "url",
+      "content": "https://www.google.com/search?q=cybersecurity+best+practices",
+      "text": "https://www.google.com/search?q=cybersecurity+best+practices",
+      "actualClassification": "BENIGN",
+      "label": "BENIGN",
+      "explanation": "Official search engine query string on legitimate registered domain."
+    },
+    {
+      "id": "URL_BENIGN_02",
+      "type": "url",
+      "content": "https://github.com/spring-projects/spring-boot",
+      "text": "https://github.com/spring-projects/spring-boot",
+      "actualClassification": "BENIGN",
+      "label": "BENIGN",
+      "explanation": "Legitimate open-source code repository hosted on an established platform."
+    },
+    {
+      "id": "URL_BENIGN_03",
+      "type": "url",
+      "content": "https://en.wikipedia.org/wiki/Computer_security",
+      "text": "https://en.wikipedia.org/wiki/Computer_security",
+      "actualClassification": "BENIGN",
+      "label": "BENIGN",
+      "explanation": "Legitimate online encyclopedia educational article."
+    },
+    {
+      "id": "URL_BENIGN_04",
+      "type": "url",
+      "content": "https://developer.android.com/guide/topics/permissions/overview",
+      "text": "https://developer.android.com/guide/topics/permissions/overview",
+      "actualClassification": "BENIGN",
+      "label": "BENIGN",
+      "explanation": "Official Android developer documentation on permission management."
+    },
+    {
+      "id": "URL_BENIGN_05",
+      "type": "url",
+      "content": "https://cybercrime.gov.in",
+      "text": "https://cybercrime.gov.in",
+      "actualClassification": "BENIGN",
+      "label": "BENIGN",
+      "explanation": "Official Government of India cybercrime reporting portal."
+    },
+    {
+      "id": "URL_BENIGN_06",
+      "type": "url",
+      "content": "https://spring.io/projects/spring-boot",
+      "text": "https://spring.io/projects/spring-boot",
+      "actualClassification": "BENIGN",
+      "label": "BENIGN",
+      "explanation": "Official framework project homepage."
+    }
+  ]
+}

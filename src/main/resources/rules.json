@@ -1,0 +1,169 @@
+{
+  "thresholds": {
+    "lowMax": 30,
+    "mediumMax": 65,
+    "highMax": 100
+  },
+  "limits": {
+    "maxMessageLength": 10000,
+    "maxUrlLength": 2048
+  },
+  "knownBrands": [
+    { "name": "google", "officialDomain": "google.com" },
+    { "name": "paypal", "officialDomain": "paypal.com" },
+    { "name": "apple", "officialDomain": "apple.com" },
+    { "name": "amazon", "officialDomain": "amazon.com" },
+    { "name": "microsoft", "officialDomain": "microsoft.com" },
+    { "name": "netflix", "officialDomain": "netflix.com" },
+    { "name": "sbi", "officialDomain": "onlinesbi.sbi" },
+    { "name": "hdfc", "officialDomain": "hdfcbank.com" },
+    { "name": "icici", "officialDomain": "icicibank.com" },
+    { "name": "axis", "officialDomain": "axisbank.com" },
+    { "name": "pnb", "officialDomain": "pnbindia.in" },
+    { "name": "paytm", "officialDomain": "paytm.com" },
+    { "name": "phonepe", "officialDomain": "phonepe.com" },
+    { "name": "chase", "officialDomain": "chase.com" },
+    { "name": "wellsfargo", "officialDomain": "wellsfargo.com" },
+    { "name": "facebook", "officialDomain": "facebook.com" },
+    { "name": "instagram", "officialDomain": "instagram.com" },
+    { "name": "whatsapp", "officialDomain": "whatsapp.com" }
+  ],
+  "knownShorteners": [
+    "bit.ly",
+    "tinyurl.com",
+    "t.co",
+    "goo.gl",
+    "is.gd",
+    "buff.ly",
+    "ow.ly",
+    "rebrand.ly",
+    "cutt.ly",
+    "shorturl.at",
+    "tiny.cc",
+    "rb.gy",
+    "clck.ru",
+    "rotf.lol"
+  ],
+  "messageRules": [
+    {
+      "id": "MSG_IMPERSONATION",
+      "name": "Impersonation of Authority or Institution",
+      "category": "Impersonation",
+      "weight": 15,
+      "patterns": [
+        "(?i)\\b(central bureau of investigation|cbi|police(?:\\s*(?:officer|inspector|department|station))?|cyber\\s*crime(?:\\s*(?:cell|branch|unit|police))?|customs(?:\\s*(?:department|officer|authority))?|trai|telecom\\s*regulatory\\s*authority|department\\s*of\\s*telecommunications|dot|enforcement\\s*directorate|ed\\s*officer|reserve\\s*bank\\s*of\\s*india|rbi(?:\\s*(?:governor|officer|direction))?|supreme\\s*court|narcotics\\s*control\\s*bureau|ncb|interpol|fedex(?:\\s*(?:courier|delivery))?|blue\\s*dart|dhl(?:\\s*express)?|india\\s*post|state\\s*bank\\s*of\\s*india|sbi|hdfc(?:\\s*bank)?|icici(?:\\s*bank)?|pnb|axis\\s*bank|power\\s*officer|electricity\\s*department|income\\s*tax(?:\\s*department)?)\\b"
+      ],
+      "explanation": "The message claims to originate from law enforcement, a regulatory body, bank, or parcel courier service. Scammers frequently impersonate authority figures to intimidate recipients."
+    },
+    {
+      "id": "MSG_URGENCY_FEAR",
+      "name": "Urgency and Psychological Pressure",
+      "category": "Urgency / Fear",
+      "weight": 10,
+      "patterns": [
+        "(?i)\\b(immediately|urgent(?:ly)?|within\\s*(?:\\d+|24|12|2|1)\\s*(?:hours?|hrs?|mins?|minutes?)|account\\s*(?:will\\s*be|is)?\\s*(?:blocked|suspended|terminated|deactivated|frozen)|(?:sim\\s*(?:card)?|connection|electricity\\s*connection)\\s*(?:disconnected|blocked|deactivated|will\\s*be\\s*disconnected)|service\\s*disconnection|without\\s*delay|action\\s*required\\s*today|immediate\\s*consequences|fail(?:ure)?\\s*to\\s*comply|last\\s*(?:warning|notice)|disconnected\\s*(?:tonight|today))\\b"
+      ],
+      "explanation": "The message employs urgent deadlines or threats of immediate service suspension to induce panic and prevent rational verification."
+    },
+    {
+      "id": "MSG_ARREST_THREAT",
+      "name": "Arrest and Legal Action Threat",
+      "category": "Arrest threats",
+      "weight": 20,
+      "patterns": [
+        "(?i)\\b(digital\\s*arrest|arrest\\s*(?:warrant|you|order)?|non-bailable\\s*warrant|nbw|(?:police\\s*)?case\\s*(?:has\\s*been\\s*)?(?:registered|filed|lodged)|fir\\s*(?:has\\s*been\\s*)?(?:lodged|registered)?|money\\s*laundering|illegal\\s*(?:goods|narcotics|drugs|contraband|parcel)|parcel\\s*seized|criminal\\s*(?:offense|charges?|investigation)|police\\s*action|court\\s*proceedings|subpoena|appear\\s*in\\s*court)\\b"
+      ],
+      "explanation": "The message threatens arrest, warrants, criminal FIRs, or legal prosecution (a hallmark of 'digital arrest' scams). Law enforcement agencies never arrest or conduct court hearings via phone or video calls."
+    },
+    {
+      "id": "MSG_SECRECY_ISOLATION",
+      "name": "Secrecy, Surveillance, and Isolation",
+      "category": "Secrecy / Isolation",
+      "weight": 15,
+      "patterns": [
+        "(?i)\\b(do\\s*not\\s*(?:tell|inform|contact)\\s*(?:anyone|anybody|family|lawyer|friends?)|keep\\s*(?:this|it)?\\s*(?:confidential|secret|strictly\\s*private)|(?:stay\\s*on|join|on)\\s*(?:a\\s*)?(?:video|skype|whatsapp)\\s*call|do\\s*not\\s*disconnect\\s*(?:the\\s*call)?|remain\\s*in\\s*(?:a|the)?\\s*closed\\s*room|maintain\\s*silence|under\\s*surveillance|classified\\s*investigation)\\b"
+      ],
+      "explanation": "The sender demands that you keep the communication secret, isolate yourself, or remain on an uninterrupted video call. This coercive tactic is used to prevent you from seeking advice."
+    },
+    {
+      "id": "MSG_PAYMENT_DEMAND",
+      "name": "Financial Demand or Safe Account Transfer",
+      "category": "Payment demand",
+      "weight": 20,
+      "patterns": [
+        "(?i)\\b(transfer\\s*(?:rs\\.?|inr|\\$|\\d+|money|funds?|amount|bill\\s*payment|payment)|pay\\s*(?:a\\s*)?(?:fine|penalty|fee|bail|deposit|rs\\.?|inr|\\$)|safe\\s*(?:verification\\s*)?account|security\\s*deposit|rbi\\s*(?:safe|clearance)\\s*account|gift\\s*cards?|upi\\s*(?:transfer|payment|id)|escrow\\s*account|refundable\\s*(?:deposit|amount)|immediate\\s*clearance\\s*fee|send\\s*(?:rs\\.?|inr|\\$|money))\\b"
+      ],
+      "explanation": "The message demands an immediate money transfer, penalty fee, or transfer into a supposedly 'safe government/RBI verification account'. Genuine authorities never require fund transfers to safe accounts."
+    },
+    {
+      "id": "MSG_CREDENTIAL_REQUEST",
+      "name": "Sensitive Credential or OTP Request",
+      "category": "Credential request",
+      "weight": 20,
+      "patterns": [
+        "(?i)\\b(?:share|send|provide|enter|submit|update|verify|confirm|give)\\s*(?:your)?\\s*(?:otp|one\\s*time\\s*password|pin|password|cvv|card\\s*number|card\\s*details|atm\\s*pin|aadhaar(?:\\s*details|\\s*number)?|net\\s*banking\\s*credentials?)\\b",
+        "(?i)\\b(?:click\\s*(?:here|link)?\\s*to\\s*(?:update|verify|enter)\\s*(?:your)?\\s*(?:otp|kyc|pan|aadhaar|password|credentials?))\\b"
+      ],
+      "benignExceptions": [
+        "(?i)\\b(?:never|do\\s*not|don't|not\\s*required\\s*to|will\\s*never\\s*ask|beware\\s*of)\\s*(?:share|sharing|send|disclose|give|provide)\\s*(?:your)?\\s*(?:otp|pin|password|cvv)\\b",
+        "(?i)\\b(?:bank|sbi|hdfc|icici|rbi|police)\\s*(?:never|will\\s*never)\\s*(?:asks?|call|request)\\s*(?:for)?\\s*(?:otp|pin|password)\\b",
+        "(?i)\\b(?:security\\s*tip|alert|safety\\s*warning)\\s*:\\s*(?:never|do\\s*not)\\s*share\\b"
+      ],
+      "explanation": "The message requests sensitive credentials such as an OTP, PIN, password, CVV, or Aadhaar details. Legitimate organizations and banks will never ask you to disclose secret authentication codes."
+    }
+  ],
+  "urlRules": [
+    {
+      "id": "URL_NUMERIC_IP",
+      "name": "Numeric IP Address Host",
+      "weight": 25,
+      "explanation": "The URL uses a direct numeric IP address (e.g., 192.168.1.1) rather than a legitimate registered domain name. Attackers use raw IPs to bypass domain registration and reputation filters."
+    },
+    {
+      "id": "URL_DECEPTIVE_SUBDOMAIN",
+      "name": "Deceptive Brand Subdomain",
+      "weight": 15,
+      "explanation": "The URL contains a trusted brand name inside a subdomain or prefix of an unrelated host (e.g., paypal.com.attacker-site.xyz). The true destination is the parent domain, not the brand."
+    },
+    {
+      "id": "URL_LOOKALIKE_DOMAIN",
+      "name": "Look-alike or Typosquatting Domain",
+      "weight": 20,
+      "explanation": "The domain name closely mimics a well-known brand using character substitutions or typos (e.g., paypa1, micros0ft, arnazon). This is a common phishing technique."
+    },
+    {
+      "id": "URL_EXCESSIVE_HYPHENS",
+      "name": "Excessive Hyphens in Hostname",
+      "weight": 10,
+      "explanation": "The host contains 3 or more hyphens (e.g., secure-login-verify-account.com). Malicious domains frequently string together multiple keywords separated by hyphens."
+    },
+    {
+      "id": "URL_AT_SYMBOL",
+      "name": "Embedded '@' Symbol in URL Authority",
+      "weight": 15,
+      "explanation": "The URL contains an '@' character in the authority section. Standard web browsers interpret text before '@' as user-info and connect only to the host after '@', concealing the actual destination."
+    },
+    {
+      "id": "URL_LONG_OR_ENCODED_PATH",
+      "name": "Suspicious Long, Encoded, or Executable Path",
+      "weight": 10,
+      "explanation": "The URL contains an unusually long path, repeated hex-encoded characters, or direct links to executable/package files (.apk, .exe, .scr). This structure is frequently used to obfuscate malicious payloads."
+    },
+    {
+      "id": "URL_SHORTENER",
+      "name": "Known URL Shortening Service",
+      "weight": 10,
+      "explanation": "The link uses a URL shortener service (e.g., bit.ly, tinyurl.com). Shorteners obscure the true destination domain, preventing inspection before opening."
+    }
+  ],
+  "disclaimer": "This result is advisory and does not prove that the message or URL is malicious or safe. Always verify communications independently.",
+  "recommendedActions": {
+    "high": "Do not transfer money, do not share any credentials or OTPs, and disconnect any unsolicited call immediately. If threatened with digital arrest, remember that Indian law enforcement does not arrest citizens over video calls. Report to cybercrime.gov.in (National Cyber Crime Reporting Portal) or call 1930.",
+    "medium": "Exercise strong caution. Do not click links, open attachments, or take hurried actions. Independently verify the claim by contacting the organization through their official phone number or website.",
+    "low": "No standard indicators of phishing or social engineering were triggered based on configured rules. However, attackers continuously evolve their techniques. Always remain vigilant and never share credentials."
+  },
+  "safeHandlingTips": {
+    "message": "Never share OTPs, UPI PINs, or banking passwords with anyone under any circumstances. Official agencies do not issue arrest warrants via WhatsApp or conduct investigations over Skype/video calls.",
+    "url": "Do not click unverified links received in SMS or chat messages. Type the official website address directly into your browser bookmark or address bar."
+  }
+}

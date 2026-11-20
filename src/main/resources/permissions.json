@@ -1,0 +1,194 @@
+{
+  "mandatoryWarning": "Permissions alone never prove that an application is malware. Evaluate permissions in the context of the application's intended functionality, developer and source.",
+  "defaultUnknownPermission": {
+    "permission": "UNKNOWN_PERMISSION",
+    "name": "Unrecognized Android Permission",
+    "description": "This permission is not currently in the curated high-risk catalog.",
+    "commonLegitimateUse": "May be a vendor-specific extension, standard non-critical permission, or newly introduced Android API capability.",
+    "securityRisk": "Unknown or custom permissions can sometimes grant privileged actions depending on the OS version and application privilege level.",
+    "recommendation": "REVIEW",
+    "explanation": "Review the application's manifest, requested capabilities, and publisher reputability before granting access."
+  },
+  "permissions": [
+    {
+      "permission": "READ_SMS",
+      "name": "Read SMS Messages",
+      "description": "Allows an application to read SMS messages stored on your device or SIM card.",
+      "commonLegitimateUse": "Dedicated SMS clients, two-factor authentication auto-fill (where Google SMS Retriever API is not used), or banking SMS transaction aggregators.",
+      "securityRisk": "Malicious apps can steal One-Time Passwords (OTPs), financial verification codes, and private personal communications, enabling account takeovers.",
+      "recommendation": "DENY",
+      "explanation": "Modern Android apps should use Google's SMS Retriever API or SMS User Consent API which do not require full READ_SMS permission. Deny unless the app is your primary SMS messaging client."
+    },
+    {
+      "permission": "SEND_SMS",
+      "name": "Send SMS Messages",
+      "description": "Allows an application to send SMS messages directly from your device without your explicit confirmation.",
+      "commonLegitimateUse": "Default SMS application or emergency SOS alerting apps.",
+      "securityRisk": "Trojans can silently subscribe your phone number to premium-rate messaging services or send unauthorized SMS messages incurring heavy carrier charges.",
+      "recommendation": "DENY",
+      "explanation": "Deny unless the application is your default SMS messenger. Never grant this to utility apps, flashlights, games, or calculators."
+    },
+    {
+      "permission": "RECEIVE_SMS",
+      "name": "Receive SMS Messages",
+      "description": "Allows an application to intercept and process incoming SMS messages as they arrive.",
+      "commonLegitimateUse": "Default SMS clients or emergency broadcast dispatchers.",
+      "securityRisk": "Attackers can intercept banking transaction alerts and authentication OTPs before you even see them.",
+      "recommendation": "DENY",
+      "explanation": "Deny for all apps except your chosen primary default SMS application."
+    },
+    {
+      "permission": "READ_CONTACTS",
+      "name": "Read Contacts",
+      "description": "Allows an application to access all contact records stored on your phone.",
+      "commonLegitimateUse": "Communication apps, messaging services, email clients, or contact backup tools.",
+      "securityRisk": "Predatory loan apps and data brokers harvest your address book to blackmail contacts or build social engineering profiles.",
+      "recommendation": "REVIEW",
+      "explanation": "Allow only if the application has a clear social or communications purpose. Deny for offline tools, calculators, photo editors, and single-player games."
+    },
+    {
+      "permission": "WRITE_CONTACTS",
+      "name": "Modify Contacts",
+      "description": "Allows an application to modify or delete contacts stored in your phone directory.",
+      "commonLegitimateUse": "Contact management apps, sync tools, or address book backup utilities.",
+      "securityRisk": "Malware can alter stored contacts, substitute phone numbers, or inject malicious links into existing contact cards.",
+      "recommendation": "REVIEW",
+      "explanation": "Allow only for contact manager apps or sync utilities you trust. Deny for typical third-party apps."
+    },
+    {
+      "permission": "READ_CALL_LOG",
+      "name": "Read Call History",
+      "description": "Allows an application to read your private call history, including incoming, outgoing, and missed calls.",
+      "commonLegitimateUse": "Default dialer, caller ID / spam identification tools (e.g., Truecaller), or telecom account apps.",
+      "securityRisk": "Exposes your communication habits, frequency of contact with specific individuals, and private metadata to surveillance or extortion.",
+      "recommendation": "DENY",
+      "explanation": "Only grant to a trusted caller-identification or default dialer application. Deny for general utility or entertainment apps."
+    },
+    {
+      "permission": "CALL_PHONE",
+      "name": "Directly Call Phone Numbers",
+      "description": "Allows an application to initiate phone calls without going through the system dialer user interface.",
+      "commonLegitimateUse": "Default phone dialer apps or dedicated emergency dispatch apps.",
+      "securityRisk": "Trojans can dial premium-rate toll numbers or initiate unauthorized calls in the background without user knowledge.",
+      "recommendation": "DENY",
+      "explanation": "Apps should normally use an Intent to open the system dialer so the user confirms the number before placing a call. Deny unless it is your primary dialer."
+    },
+    {
+      "permission": "ACCESS_FINE_LOCATION",
+      "name": "Precise GPS Location",
+      "description": "Allows an application to access your exact geographical coordinates using GPS and network towers.",
+      "commonLegitimateUse": "Navigation (Google Maps), ride-sharing (Uber, Ola), fitness tracking, or delivery tracking.",
+      "securityRisk": "Enables persistent physical tracking of your movements, home address, workplace, and daily routines.",
+      "recommendation": "REVIEW",
+      "explanation": "Allow while using the app for navigation and ride-hailing. Deny or choose 'Approximate Location' for weather apps, shopping apps, or social media."
+    },
+    {
+      "permission": "ACCESS_COARSE_LOCATION",
+      "name": "Approximate Location",
+      "description": "Allows an application to determine your general location (city/neighborhood level) using Wi-Fi and cell cell towers.",
+      "commonLegitimateUse": "Weather forecasts, local news, regional content selection.",
+      "securityRisk": "Reveals your city or neighborhood without requiring high battery usage.",
+      "recommendation": "ALLOW",
+      "explanation": "Safe to allow for apps that need regional context (e.g., weather or local news) when precise GPS is unnecessary."
+    },
+    {
+      "permission": "CAMERA",
+      "name": "Access Camera",
+      "description": "Allows an application to capture photos and record video streams at any time.",
+      "commonLegitimateUse": "Camera apps, video conferencing (Zoom, Google Meet), QR code scanners, document scanners.",
+      "securityRisk": "Spyware can covertly record your environment, photos, or documents without your explicit awareness.",
+      "recommendation": "REVIEW",
+      "explanation": "Allow only when the app has a primary photo, video call, or barcode-scanning purpose. Set to 'Only while using the app'."
+    },
+    {
+      "permission": "RECORD_AUDIO",
+      "name": "Record Microphone Audio",
+      "description": "Allows an application to record audio from the microphone at any time.",
+      "commonLegitimateUse": "Voice recorders, voice messaging, phone calls, virtual assistants.",
+      "securityRisk": "Can be exploited by spyware to eavesdrop on private conversations, meetings, and ambient audio.",
+      "recommendation": "REVIEW",
+      "explanation": "Allow only if voice input or recording is essential to the application. Select 'Only while using the app' on modern Android versions."
+    },
+    {
+      "permission": "READ_MEDIA_IMAGES",
+      "name": "Read Photos and Images",
+      "description": "Allows an application to read all image files stored on your device (Android 13+).",
+      "commonLegitimateUse": "Photo editors, gallery apps, profile picture uploaders, cloud backup services.",
+      "securityRisk": "Unrestricted access allows apps to inspect private personal photos, screenshots of sensitive notes, or identity cards.",
+      "recommendation": "REVIEW",
+      "explanation": "On Android 13+, prefer using the Android Photo Picker which grants access to only selected images without giving full storage access."
+    },
+    {
+      "permission": "READ_MEDIA_VIDEO",
+      "name": "Read Video Files",
+      "description": "Allows an application to read video recordings and movies stored on your device (Android 13+).",
+      "commonLegitimateUse": "Video players, video editors, video sharing platforms.",
+      "securityRisk": "Malicious apps can exfiltrate personal video recordings and media libraries.",
+      "recommendation": "REVIEW",
+      "explanation": "Allow for dedicated video players and editors. For single uploads, prefer the Android Photo/Video Picker."
+    },
+    {
+      "permission": "READ_MEDIA_AUDIO",
+      "name": "Read Music and Audio Files",
+      "description": "Allows an application to read stored music and audio recordings (Android 13+).",
+      "commonLegitimateUse": "Music players, podcast apps, audio editors.",
+      "securityRisk": "Allows scanning and exfiltration of recorded voice notes and audio memos.",
+      "recommendation": "REVIEW",
+      "explanation": "Allow for media players and audio editors. Deny for apps that have no audio playback or editing functions."
+    },
+    {
+      "permission": "READ_PHONE_STATE",
+      "name": "Read Phone State and Identity",
+      "description": "Allows access to phone status, cellular network info, incoming call status, and unique device identifiers (IMEI on older OS versions).",
+      "commonLegitimateUse": "Pausing media playback during incoming calls, carrier self-service apps.",
+      "securityRisk": "Used extensively by ad tracking networks and malware to fingerprint devices across app re-installs.",
+      "recommendation": "DENY",
+      "explanation": "Deny unless required by a trusted carrier self-care app. Modern Android media players do not need this to handle audio focus."
+    },
+    {
+      "permission": "SYSTEM_ALERT_WINDOW",
+      "name": "Display Over Other Apps",
+      "description": "Allows an application to draw windows and UI elements on top of any other running application.",
+      "commonLegitimateUse": "Chat heads (e.g., Messenger), screen recorders, blue light filter apps.",
+      "securityRisk": "Heavily abused by banking trojans for overlay attacks—drawing a fake login screen over legitimate banking apps to steal login credentials and keystrokes.",
+      "recommendation": "DENY",
+      "explanation": "Extremely dangerous permission. Deny unless absolutely required by a verified screen utility. Never grant this to banking or loan apps."
+    },
+    {
+      "permission": "REQUEST_INSTALL_PACKAGES",
+      "name": "Install Unknown Applications",
+      "description": "Allows an application to trigger the installation of new APK packages from outside the Google Play Store.",
+      "commonLegitimateUse": "Alternative app stores (F-Droid, Amazon Appstore) or web browsers (Chrome) when intentionally side-loading.",
+      "securityRisk": "Trojan downloaders use this to silently download and prompt installation of secondary malware payloads.",
+      "recommendation": "DENY",
+      "explanation": "Deny for all general applications. Only enable temporarily for your primary web browser or trusted open-source app store when side-loading."
+    },
+    {
+      "permission": "BIND_ACCESSIBILITY_SERVICE",
+      "name": "Full Accessibility Service Access",
+      "description": "Grants complete control over the device interface: can inspect all screen content, read keystrokes, and simulate touches.",
+      "commonLegitimateUse": "Assistive technology for individuals with disabilities (screen readers like TalkBack), password managers (auto-fill), and automation tools (Tasker).",
+      "securityRisk": "The single most abused permission by sophisticated Android banking trojans and spywares. It allows malware to read OTPs from any screen, capture passwords, grant themselves additional permissions, and execute banking transactions autonomously.",
+      "recommendation": "DENY",
+      "explanation": "Critical security risk! Never grant Accessibility Services to an app unless you specifically rely on it for assistive needs or a well-known verified utility. Treat any unsolicited request for accessibility access as malware."
+    },
+    {
+      "permission": "POST_NOTIFICATIONS",
+      "name": "Post Notifications",
+      "description": "Allows an application to post notifications in the system notification shade (Android 13+).",
+      "commonLegitimateUse": "Messaging apps, reminders, task alerts, delivery status updates.",
+      "securityRisk": "Spamware apps flood users with misleading phishing alerts, fake virus warnings, and predatory loan advertisements.",
+      "recommendation": "REVIEW",
+      "explanation": "Allow for apps where timely alerts matter (chat, alarms, calendar). Deny for games, flashlight apps, or utility tools that spam promotions."
+    },
+    {
+      "permission": "GET_ACCOUNTS",
+      "name": "Access Device Accounts",
+      "description": "Allows access to the list of synchronized accounts on the device (Google, email, etc.).",
+      "commonLegitimateUse": "Legacy single sign-on mechanisms in older Android applications.",
+      "securityRisk": "Exposes email addresses and registered account identities for tracking and targeting.",
+      "recommendation": "DENY",
+      "explanation": "Modern Android apps should use Google Identity / Credential Manager APIs instead of querying the device account list directly."
+    }
+  ]
+}
